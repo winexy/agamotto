@@ -4,11 +4,26 @@
   "description": "Library for building interfaces",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "clean": "rm dist/bundle.js",
+    "dev": "webpack -d --mode development",
+    "watch": "webpack -d --mode development --watch",
+    "prod": "webpack -p --mode production"
   },
   "author": "Seitmagmabet Olzhas",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-transform-react-jsx": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "jest": "^23.6.0",
+    "virtual-dom": "^2.1.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "uninstall": "0.0.0"
   }
 }
