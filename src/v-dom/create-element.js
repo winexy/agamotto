@@ -15,7 +15,7 @@ export default function createElement(node) {
   }
 
   if (Array.isArray(node)) {
-    return node.map(createElement)
+    return node.map(createElement);
   }
 
   if (typeof node !== 'object') {

@@ -1,5 +1,5 @@
 import { setProp } from './set-prop';
-import removeProp  from './remove-prop';
+import removeProp from './remove-prop';
 
 function updateProp($target, name, newVal, oldVal) {
   if (!newVal) {

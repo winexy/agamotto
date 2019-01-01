@@ -4,13 +4,14 @@ class Component {
   constructor({ props, children }) {
     this.props = props || {};
     this.children = children;
-    console.log(this);
   }
 
   setState(newState = {}) {
     this.beforeUpdate();
 
     let beforeUpdate = this.render();
+
+
 
     this.state = {
       ...this.state,
@@ -23,6 +24,11 @@ class Component {
     if (!shouldUpdate) return;
 
     let updated = this.render();
+    console.log(beforeUpdate);
+    console.log(updated);
+
+    console.log(this.$el);
+    console.log(this.$el.parentElement);
 
     AgamottoDOM.rerender(this.$el.parentElement, updated, beforeUpdate);
 

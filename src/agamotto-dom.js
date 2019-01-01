@@ -7,9 +7,8 @@ class AgamottoDOM {
     updateElement(root, app);
   };
 
-  static rerender(root, newApp, oldApp) {
-    if (!root) throw new Error('Can\'t find root element');
-    updateElement(root, newApp, oldApp);
+  static rerender(parent, newApp, oldApp) {
+    updateElement(parent, newApp, oldApp);
   }
 }
 
