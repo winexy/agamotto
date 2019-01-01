@@ -30,6 +30,9 @@ class App extends Agamotto.Component {
           onInput={this.onInput.bind(this)}
         />
         <p>{ this.state.text }</p>
+        {
+          this.children
+        }
       </div>
     );
   }
@@ -37,6 +40,9 @@ class App extends Agamotto.Component {
 
 
 AgamottoDOM.render(
-  <App/>,
+  <App name="Olzhas" age="22">
+    <p>1</p>
+    <p>2</p>
+  </App>,
   document.getElementById('root')
 );
