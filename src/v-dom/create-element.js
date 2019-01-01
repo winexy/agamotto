@@ -2,11 +2,23 @@ import { setProps } from './props/set-prop';
 import addEventListeners from './add-event-listeners';
 
 export default function createElement(node) {
+  if (!node) {
+    return document.createTextNode('');
+  }
+
+
+  if (node.render) {
+    const renderedNode = node.render();
+    const createdElement = createElement(renderedNode);
+    node.$el = createdElement;
+    return createdElement;
+  }
+
   if (Array.isArray(node)) {
     return node.map(createElement)
   }
 
-  if (typeof node === 'string' || typeof node === 'number') {
+  if (typeof node !== 'object') {
     return document.createTextNode(node);
   }
 

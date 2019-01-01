@@ -2,36 +2,27 @@ import changed from './changed';
 import updateProps from './props/update-prop';
 import createElement from './create-element';
 
-export default function updateElement($parent, newNode, oldNode, index = 0) {
+export default function updateElement($parent, newNode, oldNode, childNode = $parent.childNodes[0]) {
   if (!oldNode) {
-    $parent.appendChild(
-      createElement(newNode)
-    );
+    $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
-    $parent.removeChild(
-      $parent.childNodes[index]
-    );
+    $parent.removeChild(childNode);
+    return -1;  // suggests that an element has been removed
   } else if (changed(newNode, oldNode)) {
-    $parent.replaceChild(
-      createElement(newNode),
-      $parent.childNodes[index]
-    );
+    $parent.replaceChild(createElement(newNode), childNode);
   } else if (newNode.type) {
-    debugger;
-    updateProps(
-      $parent.childNodes[index],
-      newNode.props,
-      oldNode.props
-    );
-    const newLength = newNode.children.length;
-    const oldLength = oldNode.children.length;
-    for (let i = 0; i < newLength || i < oldLength; i++) {
-      updateElement(
-        $parent.childNodes[index],
+    updateProps(childNode, newNode.props, oldNode.props);
+    const length = Math.max(newNode.children.length, oldNode.children.length);
+
+    let adjustment = 0;
+    for (let i = 0; i < length; i++) {
+      adjustment += updateElement(
+        childNode,
         newNode.children[i],
         oldNode.children[i],
-        i
+        childNode.childNodes[i + adjustment]
       );
     }
   }
+  return 0; // suggest that an element has not been removed
 }
