@@ -17,6 +17,7 @@ export default function updateElement($parent, newNode, oldNode, index = 0) {
       $parent.childNodes[index]
     );
   } else if (newNode.type) {
+    debugger;
     updateProps(
       $parent.childNodes[index],
       newNode.props,

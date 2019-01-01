@@ -1,4 +1,4 @@
-import Agamotto from './agmotto';
+import Agamotto from './agamotto';
 import AgamottoDOM from './AgamottoDOM';
 
 

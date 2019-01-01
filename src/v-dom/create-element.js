@@ -2,7 +2,6 @@ import { setProps } from './props/set-prop';
 import addEventListeners from './add-event-listeners';
 
 export default function createElement(node) {
-  console.log(node);
   if (Array.isArray(node)) {
     return node.map(createElement)
   }
@@ -11,15 +10,13 @@ export default function createElement(node) {
     return document.createTextNode(node);
   }
 
-  if (!node) return document.createTextNode('');
-
 
   const $el = document.createElement(node.type);
   setProps($el, node.props);
   addEventListeners($el, node.props);
 
-  debugger;
   node.children
+    .filter(_ => _)
     .map(createElement)
     .forEach($el.appendChild.bind($el));
   return $el;

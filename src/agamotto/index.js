@@ -1,5 +1,7 @@
+import h from '../v-dom/hyper-script-function';
 
-class Agamotto {
+
+class Component {
   constructor(props) {
     this.props = props;
   }
@@ -18,4 +20,9 @@ class Agamotto {
 }
 
 
-export default Agamotto;
+
+
+export default {
+  Component,
+  createElement: h
+};

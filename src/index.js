@@ -1,4 +1,4 @@
-import h from './v-dom/hyper-script-function';
+import Agamotto from './agamotto';
 import updateElement from './v-dom/update-element';
 
 
