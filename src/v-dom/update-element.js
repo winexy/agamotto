@@ -3,11 +3,10 @@ import updateProps from './props/update-prop';
 import createElement from './create-element';
 
 export default function updateElement($parent, newNode, oldNode, $child = $parent.childNodes[0]) {
-  debugger;
   if (!oldNode) {
     $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
-    $parent.removeChild(childNode);
+    $parent.removeChild($child);
     return -1;
     // suggests that an element has been removed
   } else if (changed(newNode, oldNode)) {

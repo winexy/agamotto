@@ -30,7 +30,7 @@ class Component {
     console.log(this.$el);
     console.log(this.$el.parentElement);
 
-    AgamottoDOM.rerender(this.$el.parentElement, updated, beforeUpdate);
+    AgamottoDOM.rerender(this.$el, updated, beforeUpdate);
 
     this.updated();
   }

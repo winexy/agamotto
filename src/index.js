@@ -25,7 +25,6 @@ class App extends Agamotto.Component {
   }
 
   onInput(e) {
-    debugger;
     this.setState({
       text: e.target.value
     })

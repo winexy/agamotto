@@ -22,7 +22,6 @@ export function setProp($target, name, value) {
 
 
 function setStyleProp($target, styles) {
-  debugger;
   if (typeof styles === 'string')
     return $target.setAttribute('style', styles);
 
