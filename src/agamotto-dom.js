@@ -1,16 +1,11 @@
-import updateElement from './v-dom/update-element';
+const updateElement = require('./v-dom/update-element');
 
-class AgamottoDOM {
+function AgamottoDOM() {}
 
-  static render(app, root) {
-    if (!root) throw new Error('Can\'t find root element');
-    updateElement(root, app);
-  };
-
-  static rerender(parent, newApp, oldApp) {
-    updateElement(parent, newApp, oldApp);
-  }
-}
+AgamottoDOM.render = function(component, container, oldComponent) {
+  if (!container) throw new Error('Can\'t find root element');
+  updateElement(container, component, oldComponent);
+};
 
 
-export default AgamottoDOM;
+module.exports = AgamottoDOM;

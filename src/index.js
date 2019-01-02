@@ -1,5 +1,5 @@
-import Agamotto from './agamotto'
-import AgamottoDOM from './agamotto-dom';
+const Agamotto = require('./agamotto');
+const AgamottoDOM = require('./agamotto-dom');
 
 import SomeComponent from './SomeComponent';
 
@@ -153,7 +153,6 @@ class App2 extends Agamotto.Component {
     );
   }
 }
-
 
 
 //

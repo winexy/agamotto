@@ -1,8 +1,9 @@
-import changed from './changed';
-import updateProps from './props/update-prop';
-import createElement from './create-element';
+const changed = require('./changed');
+const updateProps = require('./props/update-prop');
+const createElement = require('./create-element');
 
-export default function updateElement($parent, newNode, oldNode, $child = $parent.childNodes[0]) {
+
+function updateElement($parent, newNode, oldNode, $child = $parent.childNodes[0]) {
   if (!oldNode) {
     $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
@@ -27,3 +28,6 @@ export default function updateElement($parent, newNode, oldNode, $child = $paren
   }
   return 0; // suggest that an element has not been removed
 }
+
+
+module.exports = updateElement;

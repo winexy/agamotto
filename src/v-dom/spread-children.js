@@ -1,4 +1,4 @@
-export default function spreadChildren(children) {
+function spreadChildren(children) {
   return children.reduce((children, child) => {
     if (!child) return children;
     if (Array.isArray(child)) children.push(...child);
@@ -6,3 +6,5 @@ export default function spreadChildren(children) {
     return children;
   }, []);
 }
+
+module.exports = spreadChildren;

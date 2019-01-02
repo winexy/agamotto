@@ -1,8 +1,8 @@
-export function isCustomProp(name) {
+function isCustomProp(name) {
   return isEventProp(name) || name === 'forceUpdate';
 }
 
-export function isEventProp(name) {
+function isEventProp(name) {
   return /^on/.test(name);
 }
 
@@ -12,7 +12,14 @@ export function isEventProp(name) {
  * @param name
  * @returns {string}
  */
-export function extractEventName(name) {
+function extractEventName(name) {
   return name.slice(2).toLowerCase();
 }
 
+
+
+module.exports = {
+  extractEventName,
+  isCustomProp,
+  isEventProp,
+};

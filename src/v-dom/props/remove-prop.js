@@ -1,11 +1,12 @@
-import { isCustomProp } from './utils';
+const { isCustomProp } = require('./utils');
 
 function removeBooleanProp($target, name) {
   $target.removeAttribute(name);
   $target[name] = false;
 }
 
-export default function removeProp($target, name, value) {
+
+function removeProp($target, name, value) {
   if (isCustomProp(name)) return;
 
   if (typeof value === 'boolean') {
@@ -14,3 +15,5 @@ export default function removeProp($target, name, value) {
     $target.removeAttribute(name);
   }
 }
+
+module.exports = removeProp;

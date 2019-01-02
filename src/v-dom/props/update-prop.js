@@ -1,5 +1,5 @@
-import { setProp } from './set-prop';
-import removeProp from './remove-prop';
+const { setProp } = require('./set-prop');
+const removeProp = require('./remove-prop');
 
 function updateProp($target, name, newVal, oldVal) {
   if (!newVal) {
@@ -9,7 +9,7 @@ function updateProp($target, name, newVal, oldVal) {
   }
 }
 
-export default function updateProps($target, newProps, oldProps = {}) {
+function updateProps($target, newProps, oldProps = {}) {
   const props = {
     ...newProps,
     ...oldProps
@@ -20,3 +20,4 @@ export default function updateProps($target, newProps, oldProps = {}) {
   });
 }
 
+module.exports = updateProps;

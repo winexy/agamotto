@@ -1,8 +1,7 @@
-import createElement from '../v-dom/hyper-script-function';
-import Component from './Component';
+const createElement = require('../v-dom/hyper-script-function');
+const Component = require('./Component');
 
-
-export default {
+module.exports = {
   Component,
   createElement
 };

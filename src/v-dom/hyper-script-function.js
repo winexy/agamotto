@@ -1,8 +1,8 @@
-import spreadChildren from './spread-children';
-import createFunctionalComponent from './create-functional-component';
-import createClassComponent from './create-class-component';
+const spreadChildren = require('./spread-children');
+const createFunctionalComponent = require('./create-functional-component');
+const createClassComponent = require('./create-class-component');
 
-export default function h(...args) {
+function h(...args) {
   let [type, props, ...children] = args;
 
   if (typeof type === 'string')
@@ -13,10 +13,13 @@ export default function h(...args) {
     };
 
 
-  if (type.prototype.render) {
+  if (type.prototype.isAgamottoComponent) {
     return createClassComponent(...args);
   }
 
   return createFunctionalComponent(...args);
 }
+
+
+module.exports = h;
 

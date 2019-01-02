@@ -1,14 +1,14 @@
-import { isCustomProp } from './utils';
+const { isCustomProp } = require('./utils');
 
 
-export function setProps($target, props) {
+function setProps($target, props) {
   Object.keys(props).forEach(name => {
     setProp($target, name, props[name]);
   });
 }
 
 
-export function setProp($target, name, value) {
+function setProp($target, name, value) {
   if (isCustomProp(name)) return;
 
   if (typeof value === 'boolean') {
@@ -40,3 +40,9 @@ function setBooleanProp($target, name, value) {
     $target[name] = false;
   }
 }
+
+
+module.exports = {
+  setProps,
+  setProp
+};

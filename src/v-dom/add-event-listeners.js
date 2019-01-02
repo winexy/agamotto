@@ -1,10 +1,13 @@
-import {
+const {
   isEventProp,
   extractEventName
-} from './props/utils';
+} = require('./props/utils');
 
-export default function addEventListeners($target, props) {
+function addEventListeners($target, props) {
   Object.keys(props)
     .filter(isEventProp)
     .forEach(event => $target.addEventListener(extractEventName(event), props[event]));
 }
+
+
+module.exports = addEventListeners;

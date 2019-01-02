@@ -1,4 +1,4 @@
-export default function changed(node1, node2) {
+function changed(node1, node2) {
 
   if (node1.props && node1.props.forceUpdate) return true;
 
@@ -10,3 +10,6 @@ export default function changed(node1, node2) {
 
   return e;
 }
+
+
+module.exports = changed;

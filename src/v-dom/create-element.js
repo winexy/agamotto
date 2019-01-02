@@ -1,7 +1,7 @@
-import { setProps } from './props/set-prop';
-import addEventListeners from './add-event-listeners';
+const { setProps } = require('./props/set-prop');
+const addEventListeners = require('./add-event-listeners');
 
-export default function createElement(node) {
+function createElement(node) {
   if (!node) {
     return document.createTextNode('');
   }
@@ -33,3 +33,6 @@ export default function createElement(node) {
     .forEach($el.appendChild.bind($el));
   return $el;
 }
+
+
+module.exports = createElement;
